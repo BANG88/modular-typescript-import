@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const meow = require('meow')
 import modularTypescriptImport from './index'
-
 const cli = meow(`
 	Usage
 	  $ modular-typescript-import [input]
