@@ -1,18 +1,24 @@
 #!/usr/bin/env node
-const meow = require('meow')
+import * as meow from 'meow'
 import modularTypescriptImport from './index'
 const cli = meow(`
 	Usage
-	  $ modular-typescript-import [input]
+	  $ modular-typescript-import --pattern --dist
 
 	Options
-	  --foo  Lorem ipsum [Default: false]
+	  --pattern  glob pattern match your files [Default: src/**/*.@(tsx|ts)]
+	  --dist  the destination will write file to [Default: '']
 
 	Examples
-	  $ modular-typescript-import
-	  unicorns & rainbows
-	  $ modular-typescript-import ponies
-	  ponies & rainbows
+	  $ modular-typescript-import --pattern test/*.tsx --dist dist
+		❯ tree dist
+			dist
+			└── test
+					└── index.tsx
+
+			1 directory, 1 file
 `)
 
-console.log(modularTypescriptImport(cli.input[0] || 'unicorns'))
+const { pattern, dist, ...options } = cli.flags
+
+modularTypescriptImport({ pattern, dist, options })
