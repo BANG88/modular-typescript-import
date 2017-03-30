@@ -27,21 +27,7 @@ modularTypescriptImport(options);
 
 ### modularTypescriptImport([options])
 
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
+Please read the source code for more informations.
 
 ## CLI
 
@@ -53,18 +39,75 @@ $ npm install --global modular-typescript-import
 $ modular-typescript-import --help
 
   Usage
-    modular-typescript-import [input]
+	  $ modular-typescript-import --pattern --dist
 
-  Options
-    --foo  Lorem ipsum [Default: false]
+	Options
+	  --pattern  glob pattern match your files [Default: src/**/*.@(tsx|ts)]
+	  --dist  the destination will write file to [Default: '']
 
-  Examples
-    $ modular-typescript-import
-    unicorns & rainbows
-    $ modular-typescript-import ponies
-    ponies & rainbows
+	Examples
+	  $ modular-typescript-import --pattern test/*.tsx --dist dist
+
 ```
 
+## Demo
+
+### input
+
+```ts
+import * as React from 'react'
+import { Button, message, Alert, Form, Layout } from 'antd';
+declare interface DemoProps {
+	children?: React.ReactNode
+}
+declare interface DemoState { }
+class Demo extends React.Component<DemoProps, DemoState> {
+	render() {
+		return (
+			<div className="Demo">
+				Component
+			</div>
+		)
+	}
+}
+
+export default Demo
+```
+### output
+
+```ts
+import * as React from 'react'
+const Button = require('antd/lib/button')
+require('antd/lib/button/style/css')
+
+const message = require('antd/lib/message')
+require('antd/lib/message/style/css')
+
+const Alert = require('antd/lib/alert')
+require('antd/lib/alert/style/css')
+
+const Form = require('antd/lib/form')
+require('antd/lib/form/style/css')
+
+const Layout = require('antd/lib/layout')
+require('antd/lib/layout/style/css')
+declare interface DemoProps {
+	children?: React.ReactNode
+}
+declare interface DemoState { }
+class Demo extends React.Component<DemoProps, DemoState> {
+	render() {
+		return (
+			<div className="Demo">
+				Component
+			</div>
+		)
+	}
+}
+
+export default Demo
+
+```
 
 ## License
 
