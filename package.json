@@ -12,7 +12,8 @@
   "scripts": {
     "test": "npm run lint && nyc ava --verbose",
     "lint": "tslint --project ./tsconfig.json --fix",
-    "start": "tsc -w"
+    "start": "tsc -w",
+    "pretest": "tsc"
   },
   "typings": "index.d.ts",
   "keywords": [
