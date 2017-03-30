@@ -1,0 +1,7 @@
+node_modules
+.nyc_output
+coverage
+*.js
+*.d.ts
+.yo-rc.json
+.vscode

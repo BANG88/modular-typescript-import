@@ -1,0 +1,45 @@
+{
+  "name": "modular-typescript-import",
+  "version": "0.0.0",
+  "description": "Modular typescript import",
+  "license": "MIT",
+  "repository": "bang88/modular-typescript-import",
+  "author": "bang <sqibang@gmail.com> github.com/bang88 ",
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "npm run lint && nyc ava --verbose",
+    "lint": "tslint --project ./tsconfig.json --fix",
+    "start": "tsc -w"
+  },
+  "typings": "index.d.ts",
+  "keywords": [
+    "cli-app",
+    "cli",
+    ""
+  ],
+  "dependencies": {
+    "glob": "^7.1.1",
+    "meow": "^3.7.0",
+    "mkdirp": "^0.5.1",
+    "tslib": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.8",
+    "antd": "^2.8.3",
+    "ava": "^0.18.2",
+    "coveralls": "^2.11.12",
+    "nyc": "^10.0.0",
+    "tslint": "^4.5.1",
+    "tslint-eslint-rules": "^3.5.1",
+    "typescript": "^2.2.1"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}

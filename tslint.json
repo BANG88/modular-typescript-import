@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"tslint-eslint-rules"
+	],
+	"rules": {
+		"semicolon": [
+			true,
+			"never"
+		],
+		"quotemark": [
+			true,
+			"single"
+		]
+	}
+}
